@@ -35,7 +35,7 @@ class Record:
                 except ValueError:
                         print(f"Phone number must be a 10-digit format.")
                         return False
-        return False                                    # Return False if old_phone is not found
+        return False                                    #  if old_phone is not found
 
     def remove_phone(self, phone):
         self.phones = [p for p in self.phones if p.value != phone]
@@ -47,18 +47,18 @@ class Record:
         return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}"
 
 class AddressBook(UserDict):
-    def add_record(self, record):                   # Add a Record object to the address book
+    def add_record(self, record):                   # Add a Record item to the address book
         self.data[record.name.value] = record
 
-    def find_record(self, name):                    # Find and return a Record object by name
+    def find_record(self, name):                    # Find and return a Record item by name
         return self.data.get(name) 
 
-    def delete_record(self, name):                     # Delete a Record object by name
+    def delete_record(self, name):                     # Delete a Record item by name
         if name in self.data:
             del self.data[name]
             return True
         return False
 
     def __str__(self):
-        return "\n".join([str(record) for record in self.data.values()])
+        return "\n".join([str(record) for record in self.data.values()]) #output of records
 
